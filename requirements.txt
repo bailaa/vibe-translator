@@ -1,1 +1,4 @@
 gigachat
+python-dotenv
+pyTelegramBotAPI
+Flask
