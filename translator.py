@@ -119,8 +119,12 @@ SYSTEM_PROMPT_ESO = """
 # ============================================================
 
 def translate_with_gigachat(text: str, system_prompt: str, model: str = "GigaChat-2") -> str:
-    """Отправляет запрос в GigaChat с заданным системным промптом."""
-    with GigaChat(model=model, verify_ssl_certs=False) as giga:
+    with GigaChat(
+        model=model,
+        scope="GIGACHAT_API_PERS",
+        base_url="https://api.giga.chat/v1",
+        verify_ssl_certs=False,
+    ) as giga:
         response = giga.chat(
             Chat(
                 messages=[
