@@ -10,6 +10,8 @@ from lexicons import (
     ESO_PREFIX, ESO_SUFFIX,
 )
 
+MAX_INPUT_CHARS = 250  # ~3 предложения средней длины на русском
+
 # ============================================================
 # ПРОМПТЫ С FEW-SHOT ПРИМЕРАМИ И ГРАНИЦАМИ
 # ============================================================
@@ -150,6 +152,21 @@ if __name__ == "__main__":
         phrase = " ".join(sys.argv[1:])
     else:
         phrase = input("Фраза: ")
+
+    phrase = phrase.strip()
+
+    if not phrase:
+        print("Пустой ввод — нечего переводить.", file=sys.stderr)
+        sys.exit(1)
+
+    if len(phrase) > MAX_INPUT_CHARS:
+        print(
+            f"Слишком длинный ввод: {len(phrase)} символов. "
+            f"Максимум — {MAX_INPUT_CHARS} (~3 предложения средней длины). "
+            f"Сократите фразу и попробуйте снова.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
 
     result = translate(phrase)
     print("\n=== Корпоративно-ебланский ===")
