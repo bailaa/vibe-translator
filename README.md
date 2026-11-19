@@ -1,5 +1,5 @@
 # vibe-translator
-vibe-translator from russian to corporate-eblanskyy i esotheric-osoznannii languages
+vibe-translator from russian to corporate- and shizotheric- languages
 
 
 # vibe-translator
