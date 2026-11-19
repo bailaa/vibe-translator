@@ -26,7 +26,7 @@ def send_welcome(message):
     bot.reply_to(
         message,
         "Привет! Отправь мне фразу (до 250 символов), и я переведу её "
-        "на корпоративно-ебланский и эзотерико-осознанный языки.",
+        "на корпоративный и шизотерический языки.",
     )
 
 
@@ -49,8 +49,8 @@ def handle_text(message):
     try:
         result = translate(user_text)
         response = (
-            f"*Корпоративно-ебланский:*\n{result['corporate']}\n\n"
-            f"*Эзотерико-осознанный:*\n{result['esoteric']}"
+            f"*Корпоративный:*\n{result['corporate']}\n\n"
+            f"*Шизотерический:*\n{result['esoteric']}"
         )
         bot.reply_to(message, response, parse_mode="Markdown")
     except Exception as e:
